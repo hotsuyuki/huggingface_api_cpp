@@ -49,7 +49,6 @@ int main(const int argc, const char* argv[]) {
     }
   ]
   */
-}
 
   const std::string output_string = hf_inference.tokenClassification(
     {.model = "dbmdz/bert-large-cased-finetuned-conll03-english"},
@@ -76,19 +75,6 @@ int main(const int argc, const char* argv[]) {
       "score": 0.9979913234710693,
       "start": 52,
       "word": "Jessica"
-    }
-  ]
-  */
-
-  const std::string output_string = hf_inference.translation(
-    {.model = "t5-base"},
-    {.inputs = "My name is Wolfgang and I live in Berlin"}
-  );
-  /*
-  Output:
-  [
-    {
-      "translation_text": "Mein Name ist Wolfgang und ich lebe in Berlin"
     }
   ]
   */
