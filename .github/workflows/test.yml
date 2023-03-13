@@ -1,0 +1,36 @@
+name: test
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: macos-12
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      # TODO: Investigate why "Cache not found for input keys: macOS-bazel-cache" happens in GitHub Actions
+      - name: Cache bazel
+        uses: actions/cache@v3
+        # env:
+        #   BAZEL_VERSION: 5.2.0
+        with:
+          path: |
+            /private/var/tmp
+          key: ${{ runner.os }}-bazel-cache
+          # key: ${{ runner.os }}-${{ env.BAZEL_VERSION }}-bazel-cache
+
+      # - name: Run bazel test for huggingface_api_cpp library
+      #   run: bazel test //huggingface_api_cpp/...
+
+      - name: Run bazel build for example code
+        run: bazel build //example/...

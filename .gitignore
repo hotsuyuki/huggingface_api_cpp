@@ -1,0 +1,11 @@
+temporary/
+
+# macOS
+.DS_Store
+
+# Bazel
+bazel-*
+
+# Visual Studio Code
+.vscode/
+.history/
