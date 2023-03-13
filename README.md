@@ -4,11 +4,14 @@
 
 A collection of C++ libraries to interact with the Hugging Face API (C++ version of [huggingface/huggingface.js](https://github.com/huggingface/huggingface.js)).
 
-# Prerequisite
+* [Prerequisite](#prerequisite)
+* [Usage example](#usage-example)
+
+## Prerequisite
 
 * [Bazel](https://github.com/bazelbuild/bazel) (or [Bazelisk](https://github.com/bazelbuild/bazelisk) for convenience)
 
-# Usage example
+## Usage example
 
 For more details, see [./example/inference/main.cc](./example/inference/main.cc).
 
