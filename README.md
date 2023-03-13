@@ -27,7 +27,7 @@ Code:
 
 using namespace huggingface_api_cpp::inference;
 
-int main(const int argc, const char* argv[]) {
+int main() {
   const std::filesystem::path directory_path = "/path/to/huggingface_api_cpp/huggingface_api_cpp/inference/";
   const std::string api_key = "YOUR_API_KEY";
 
