@@ -37,6 +37,49 @@ int main(const int argc, const char* argv[]) {
   // Natural Language Processing //
   /////////////////////////////////
 
+  const std::string output_string = hf_inference.textGeneration(
+    {.model = "gpt2"},
+    {.inputs = "The answer to the universe is"}
+  );
+  /*
+  Output:
+  [
+    {
+      "generated_text": "The answer to the universe is one in which we have no choice in the matter in which we live. And this is only possible through reason. If you are to understand physics, it is only necessary to understand the very nature of the matter in one"
+    }
+  ]
+  */
+}
+
+  const std::string output_string = hf_inference.tokenClassification(
+    {.model = "dbmdz/bert-large-cased-finetuned-conll03-english"},
+    {
+      .inputs = "My name is Sarah Jessica Parker but you can call me Jessica",
+      .parameters_opt = TokenClassificationArgs::Parameters{
+        .aggregation_strategy_opt = TokenClassificationArgs::Parameters::AggregationStrategy::kSimple
+      }
+    }
+  );
+  /*
+  Output:
+  [
+    {
+      "end": 31,
+      "entity_group": "PER",
+      "score": 0.9991335868835449,
+      "start": 11,
+      "word": "Sarah Jessica Parker"
+    },
+    {
+      "end": 59,
+      "entity_group": "PER",
+      "score": 0.9979913234710693,
+      "start": 52,
+      "word": "Jessica"
+    }
+  ]
+  */
+
   const std::string output_string = hf_inference.translation(
     {.model = "t5-base"},
     {.inputs = "My name is Wolfgang and I live in Berlin"}
